@@ -1,4 +1,4 @@
-# Notifications Page
+# Base Apparel Coming Soon Page
 
 Another simple challenge from Frontend Mentor.
 
