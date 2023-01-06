@@ -4,15 +4,73 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Frontend Mentor | Base Apparel coming soon page</title>
-    
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
-    <link rel="stylesheet" href="./styles/reset.css">
-    <link rel="stylesheet" href="./styles/main.css">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
+
+    <script src="./scripts/main.js"></script>
   </head>
-  <body>
-    <main>
-      <h1>Lorem Ipsum</h1>
+  <body class="text-primary-300">
+    <header class="primary-header">
+      <a href="#" class="btn btn-brand">
+        <img src="./images/logo.svg" alt="" aria-label="Base Apparel Home" />
+      </a>
+    </header>
+    <main class="primary-content">
+      <img
+        src="./images/hero-mobile.jpg"
+        alt=""
+        class="card__header | d-mobile"
+      />
+      <img
+        src="./images/hero-desktop.jpg"
+        alt=""
+        class="card__header | d-desktop"
+      />
+
+      <div class="container container-base">
+        <h1 class="primary-heading | text-primary-900 fz-900 lh-300 ls-400 tt-uppercase fw-semi-bold m-f-b-400">
+          <span class="fw-light text-primary-300">We're</span><br />Coming<br />Soon
+        </h1>
+
+        <p class="m-v-b-400">
+          Hello fellow shoppers! We're currently building our new fashion store.
+          Add your email below to stay up-to-date with announcements and our
+          launch deals.
+        </p>
+
+        <form action="" method="post" data-element="form">
+          <div class="input-group">
+            <label for="email" class="visually-hidden">Email Address</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email Address"
+            />
+            <div class="error-icon">
+              <img src="./images/icon-error.svg" alt="" />
+            </div>
+            <button type="submit" aria-label="Submit">
+              <img src="./images/icon-arrow.svg" alt="" />
+            </button>
+          </div>
+        </form>
+      </div>
     </main>
   </body>
 </html>
