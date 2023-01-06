@@ -121,9 +121,9 @@
 
   --transition: all 0.3s ease-in-out;
 
-  --container-width: 800px;
-  --header-height: 74px;
-  --hero-image-height: 250px;
+  --root-container-width: 48em;
+  --header-height: 4.625em;
+  --hero-image-height: 15.625em;
 }
 /** Root - End **/
 
@@ -207,7 +207,7 @@ b {
 }
 
 .container {
-  --container-width: var(--width-container);
+  --container-width: var(--root-container-width);
   --container-padding: var(--size-f-200);
 
   max-width: var(--container-width);
@@ -436,16 +436,19 @@ a:where(:hover, :focus, :focus-visible) {
 @media (min-width: 64.063em) {
   .primary-header {
     position: absolute;
-    top: 1rem;
-    left: 1rem;
+    top: 3em;
+    left: 13em;
+    max-width: var(--root-container-width);
   }
 
   .primary-content {
     order: -1;
     background-image: url("./../images/bg-pattern-desktop.svg");
+    width: 60%;
   }
 
   .primary-image.d-desktop {
+    width: 40%;
     aspect-ratio: 610/800;
     object-fit: cover;
   }
