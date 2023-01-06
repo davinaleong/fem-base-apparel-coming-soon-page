@@ -121,7 +121,7 @@
 
   --transition: all 0.3s ease-in-out;
 
-  --container-width: 1200px;
+  --container-width: 800px;
   --header-height: 74px;
   --hero-image-height: 250px;
 }
@@ -152,6 +152,10 @@ body {
 .body-grid {
   display: grid;
   place-items: center;
+}
+
+.body-base {
+  position: relative;
 }
 
 @media screen and (min-width: 45.625em) {
@@ -219,9 +223,9 @@ b {
 }
 
 .container-base {
+  --container-padding: var(--size-f-600);
+
   padding-block: var(--size-f-400);
-  background-image: var(--clr-primary-gradient-200);
-  background-size: cover;
   text-align: center;
   min-height: calc(100vh - var(--header-height) - var(--hero-image-height));
 }
@@ -359,21 +363,39 @@ a:where(:hover, :focus, :focus-visible) {
   box-shadow: 0.3em 0.5em 1em 0 hsl(0, 36%, 75%);
 }
 
-@media (min-width: 48em) {
-  .body-flex {
+@media (min-width: 64.063em) {
+  .body-base {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    min-height: 100vh;
   }
 
   .container-base {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-v-400);
+    justify-content: center;
     text-align: left;
+    min-height: 100%;
   }
 }
 
 /** Content - Layout **/
 .primary-header {
-  padding: var(--size-v-400);
+  padding-block: var(--size-v-400);
+}
+
+.primary-heading {
+  font-size: clamp(3rem, 5vw + 1rem, 6rem);
+}
+
+.primary-content {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: var(--clr-primary-gradient-200);
+}
+
+.primary-image.d-mobile {
+  width: 100%;
 }
 
 .input-group {
@@ -411,6 +433,23 @@ a:where(:hover, :focus, :focus-visible) {
   display: grid;
 }
 
+@media (min-width: 64.063em) {
+  .primary-header {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .primary-content {
+    order: -1;
+    background-image: url("./../images/bg-pattern-desktop.svg");
+  }
+
+  .primary-image.d-desktop {
+    aspect-ratio: 610/800;
+    object-fit: cover;
+  }
+}
 /** Content - End **/
 
 /** Utility **/
