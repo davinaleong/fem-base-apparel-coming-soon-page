@@ -25,7 +25,8 @@
   --clr-primary-400: hsl(0, 93%, 68%);
   --clr-primary-900: hsl(0, 6%, 24%);
 
-  --clr-primary-gradient-300: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  --clr-primary-gradient-200: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  --clr-primary-gradient-300: linear-gradient(135deg, hsl(3, 48%, 91%), hsl(358, 75%, 86%));
   --clr-primary-gradient-400: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
 
   --clr-link-400: hsl(228, 45%, 44%);
@@ -219,7 +220,7 @@ b {
 
 .container-base {
   padding-block: var(--size-f-400);
-  background-image: var(--clr-primary-gradient-300);
+  background-image: var(--clr-primary-gradient-200);
   background-size: cover;
   text-align: center;
   min-height: calc(100vh - var(--header-height) - var(--hero-image-height));
@@ -267,10 +268,12 @@ a:where(:hover, :focus, :focus-visible) {
 .btn {
   --btn-clr: var(--clr-gray-100);
   --btn-bg-clr: var(--clr-gray-900);
+  --btn-bg-img: none;
   --btn-border-clr: var(--clr-gray-900);
 
   --btn-hover-clr: var(--clr-gray-100);
   --btn-hover-bg-clr: var(--clr-gray-800);
+  --btn-hover-bg-img: none;
   --btn-hover-border-clr: var(--clr-gray-800);
 
   --btn-padding: var(--size-f-200) var(--size-f-400);
@@ -281,6 +284,7 @@ a:where(:hover, :focus, :focus-visible) {
   gap: var(--size-f-200);
   color: var(--btn-clr);
   background-color: var(--btn-bg-clr);
+  background-image: var(--btn-bg-img);
   border: thin solid var(--btn-border-clr);
   padding: var(--btn-padding);
   transition: all 0.3s ease-in-out;
@@ -290,6 +294,7 @@ a:where(:hover, :focus, :focus-visible) {
 .btn:where(:hover, :focus, :focus-visible) {
   color: var(--btn-hover-clr);
   background-color: var(--btn-hover-bg-clr);
+  background-image: var(--btn-hover-bg-img);
   border: thin solid var(--btn-hover-border-clr);
 }
 
@@ -331,12 +336,27 @@ a:where(:hover, :focus, :focus-visible) {
   --btn-padding: 0;
 }
 
-.btn-confirm {
-  --btn-bg-clr: var(--clr-primary-500);
-  --btn-border-clr: var(--clr-primary-500);
+.btn-form {
+  --btn-clr: var(--clr-neutral-500);
+  --btn-bg-clr: transparent;
+  --btn-bg-img: var(--clr-primary-gradient-400);
+  --btn-border-clr: transparent;
 
-  --btn-hover-bg-clr: var(--clr-primary-400);
-  --btn-hover-border-clr: var(--clr-primary-400);
+  --btn-hover-clr: var(--clr-secondary-400);
+  --btn-hover-bg-clr: transparent;
+  --btn-hover-bg-img: var(--clr-primary-gradient-300);
+  --btn-hover-border-clr: transparent;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  min-width: 5em;
+  border-radius: 100vmax;
+}
+
+.btn-form:hover {
+  box-shadow: 0.3em 0.5em 1em 0 hsl(0, 36%, 75%);
 }
 
 @media (min-width: 48em) {
@@ -354,6 +374,41 @@ a:where(:hover, :focus, :focus-visible) {
 /** Content - Layout **/
 .primary-header {
   padding: var(--size-v-400);
+}
+
+.input-group {
+  position: relative;
+}
+
+::placeholder {
+  color: var(--clr-primary-300);
+}
+
+.form-input {
+  display: block;
+  width: 100%;
+  padding: var(--size-f-300) var(--size-f-400);
+  color: var(--clr-primary-300);
+  background-color: transparent;
+  border: thin solid var(--clr-primary-300);
+  border-radius: 100vmax;
+}
+
+.input-group[data-error="true"] .form-input {
+  border: 2px solid var(--clr-primary-400);
+}
+
+.error-icon {
+  display: none;
+  place-items: center;
+  position: absolute;
+  top: 50%;
+  right: 5em;
+  translate: -50% -50%;
+}
+
+.input-group[data-error="true"] .error-icon {
+  display: grid;
 }
 
 /** Content - End **/
@@ -457,6 +512,9 @@ a:where(:hover, :focus, :focus-visible) {
   background-color: var(--clr-primary-900);
 }
 
+.bg-primary-gradient-200 {
+  background-image: var(--clr-primary-gradient-200);
+}
 .bg-primary-gradient-300 {
   background-image: var(--clr-primary-gradient-300);
 }
